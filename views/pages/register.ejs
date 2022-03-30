@@ -5,23 +5,19 @@
         <meta charset="UTF-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="/css/style.css">
         <title>Document</title>
     </head>
 
     <body>
         <div class="wrapper">
-            <div class="nav-bar">
-                <div class="prime-nav-container">
-                    <a href="/">HOME</a>
-                    <a href="/top">MOST-FAVOURITE</a>
-                </div>
-                <div class="auth-nav-container">
-                    <a href="/login">LOGIN</a>
-                    <a href="/register">REGISTER</a>
-                </div>
+            <header>
+                <%- include('../partials/nav'); %>
+            </header>
+            <main>
 
-            </div>
-            <div class="regi-form">
+            </main>
+            <main class="regi-form">
                 <form action="/register" method="POST">
                     <h1>Create an account</h1>
                     <input type="text" name="title" placeholder="Your name" required>
@@ -30,7 +26,10 @@
                     <input type="password" name="repeat" placeholder="confirm password" required>
                     <button>Register</button>
                 </form>
-            </div>
+            </main>
+            <footer>
+            <%- include('../partials/footer'); %>
+        </footer>
         </div>
     </body>
 

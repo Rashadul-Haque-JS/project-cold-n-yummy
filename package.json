@@ -4,8 +4,8 @@
   "description": "![](coldnyummy.png)",
   "main": "index.js",
   "scripts": {
-    "setup":"node develop/setup.js",
-    "seed":"node develop/seed.js",
+    "setup": "node develop/setup.js",
+    "seed": "node develop/seed.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {

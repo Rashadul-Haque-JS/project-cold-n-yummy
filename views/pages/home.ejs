@@ -5,28 +5,26 @@
         <meta charset="UTF-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="/css/style.css">
         <title>Document</title>
     </head>
 
     <body>
         <div class="wrapper">
             <header>
-                <div class="showcase">
-                    <img src="/images/showcase.svg" alt="main banner">
-                </div>
-                <div class="nav-bar">
-                    <div class="prime-nav-container">
-                        <a href="/">HOME</a>
-                        <a href="/top">MOST-FAVOURITE</a>
-                    </div>
-                    <div class="auth-nav-container">
-                        <a href="/login">LOGIN</a>
-                        <a href="/register">REGISTER</a>
-                    </div>
-
-                </div>
-            </header>
+              <%- include('../partials/header'); %> 
+                <%- include('../partials/nav'); %>
+              </header>
+              
+              <main>
+                <%=hello %> 
+              </main>
+              
+              <footer>
+                <%- include('../partials/footer'); %>
+              </footer>
         </div>
+       
     </body>
 
 </html>

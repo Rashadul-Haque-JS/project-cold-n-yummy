@@ -6,11 +6,23 @@ app.set("view engine", "ejs");
 app.use(express.urlencoded({ extended: true }));
 
 require('dotenv').config()
-const session = require('cookie-session')
-app.use( session({
-    name: 'session',
-    keys: [process.env.SESSION_SECRET]
-  }))
+// const session = require('cookie-session')
+// app.use( session({
+//     name: 'session',
+//     keys: [process.env.SESSION_SECRET]
+//   }))
+
+app.get('/', (req, res) => {
+    res.redirect('pages/home')
+})
+
+app.get('/pages/home', (req, res) => {
+    let hello = 'Just Checking...'
+    res.render('pages/home',{hello})
+})
+
+
+
 
 
 
