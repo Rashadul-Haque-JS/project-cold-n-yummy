@@ -1,0 +1,37 @@
+{
+  "name": "project-cold-n-yummy",
+  "version": "1.0.0",
+  "description": "![](coldnyummy.png)",
+  "main": "index.js",
+  "scripts": {
+    "setup":"node develop/setup.js",
+    "seed":"node develop/seed.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Rashadul-Haque-JS/project-cold-n-yumyy.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Rashadul-Haque-JS/project-cold-n-yumyy/issues"
+  },
+  "homepage": "https://github.com/Rashadul-Haque-JS/project-cold-n-yumyy#readme",
+  "dependencies": {
+    "bcryptjs": "^2.4.3",
+    "dotenv": "^16.0.0",
+    "ejs": "^3.1.6",
+    "express": "^4.17.3",
+    "express-session": "^1.17.2",
+    "install": "^0.13.0",
+    "npm": "^8.5.5",
+    "sequelize": "^6.17.0",
+    "sqlite": "^4.0.25",
+    "sqlite3": "^5.0.2"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.15"
+  }
+}
