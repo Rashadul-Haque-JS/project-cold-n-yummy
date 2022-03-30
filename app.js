@@ -6,8 +6,11 @@ app.set("view engine", "ejs");
 app.use(express.urlencoded({ extended: true }));
 
 require('dotenv').config()
-
-
+const session = require('cookie-session')
+app.use( session({
+    name: 'session',
+    keys: [process.env.SESSION_SECRET]
+  }))
 
 
 

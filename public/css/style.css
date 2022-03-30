@@ -1,0 +1,18 @@
+html {
+    scroll-behavior: smooth;
+  }
+  @import url('https://fonts.googleapis.com/css2?family=Fira+Sans:wght@200;300;400;500&family=Fredoka+One&display=swap');
+  :root {
+    --nav-color:#793C75;
+    --btn-color:#FFFB9F;
+    --card-bg-color:#E8C882;
+    --input-field-color:#D5E7DD;
+    --primary-fonts: 'Fredoka One', cursive;
+    --secondary-fonts: "Fira Sans", sans-serif;
+  }
+
+  *{
+      margin:0;
+      padding:0;
+      box-sizing: border-box;
+  }
