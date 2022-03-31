@@ -21,12 +21,12 @@ module.exports = database => {
       }
     )
 
-    const images = ['/images/optimus_p.jpg', '/images/optimus_p.jpg', '/images/optimus_p.jpg', '/images/optimus_p.jpg']
+    const images = ['optimus_p.jpg', 'optimus_p.jpg', 'optimus_p.jpg','optimus_p.jpg','optimus_p.jpg','optimus_p.jpg','optimus_p.jpg','optimus_p.jpg','optimus_p.jpg','optimus_p.jpg']
     
     images.forEach(async(i) => {
 
         await Images.create({
-            imagesName: i
+            imagesName:`/images/${i}`
         })
     })
   
