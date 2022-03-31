@@ -1,5 +1,6 @@
 const express = require("express");
 app = express()
+const {Images} = require('./models/index')
 
 app.use(express.static("public"));
 app.set("view engine", "ejs");
@@ -16,9 +17,10 @@ app.get('/', (req, res) => {
     res.redirect('pages/home')
 })
 
-app.get('/pages/home', (req, res) => {
-    let hello = 'Just Checking...'
-    res.render('pages/home',{hello})
+app.get('/pages/home', async (req, res) => {
+    const {imagesName} = await Images.findOne()
+    console.log(imagesName)
+    res.render('pages/home',{data:imagesName})
 })
 
 app.post('/register', (req, res) => {

@@ -7,7 +7,7 @@ module.exports = database => {
     Images.init(
       {
         imagesName: {
-          type: DataTypes.TEXT,
+          type: DataTypes.BLOB,
           allowNull: false
         },
         
@@ -20,6 +20,15 @@ module.exports = database => {
           timestamps:false
       }
     )
+
+    const images = ['/images/optimus_p.jpg', '/images/optimus_p.jpg', '/images/optimus_p.jpg', '/images/optimus_p.jpg']
+    
+    images.forEach(async(i) => {
+
+        await Images.create({
+            imagesName: i
+        })
+    })
   
     return Images
   }
