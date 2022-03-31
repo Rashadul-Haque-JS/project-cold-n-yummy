@@ -27,8 +27,8 @@ background-color: var(--btn-color);
 }
 .wrapper{
 width: 80%;
-height: 100vh;
-box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;;
+min-height: 100vh;
+box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
 }
 
 .wrapper .showcase{
@@ -79,4 +79,63 @@ text-decoration: none;
 padding: 0px 32px;
 }
 
+.regi-block, .login-block{
+  display: grid;
+  place-items: center;
+  margin-top: 150px;
+  
+}
+
+ .regi-form, .login-form{
+  width: 350px;
+  height: 450px;
+  background-color: #F29CC2;
+  box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+ }
  
+ form{
+   display: flex;
+   flex-direction: column;
+   justify-content: space-between;  
+   padding: 24px;
+   font-family: var(--secondary-fonts);
+
+ }
+
+ form h1{
+  text-align: center;
+  font-size: 1.2rem;
+  
+
+}
+
+ input[type="text"],input[type="password"]{
+  padding: 4px;
+ }
+
+ input[type="text"],input[type="password"],  button{
+  font-size: 1.25rem;
+  margin: 16px 0px;
+
+}
+
+.wrapper form > button{
+  background-color: var(--btn-color);
+  border: 0;
+  outline: none;
+  padding: 1.25rem;
+  font-weight: 900;
+  cursor: pointer;
+}
+
+.wrapper .social{
+  margin-top: 20px;
+}
+
+.wrapper .social a{
+  display:flex;
+  flex-direction: column;
+  align-items: center;
+  padding:8px;
+  color:rgb(53, 53, 224)
+}

@@ -21,6 +21,12 @@ app.get('/pages/home', (req, res) => {
     res.render('pages/home',{hello})
 })
 
+app.post('/register', (req, res) => {
+    
+    res.render('pages/register')
+    console.log(req.body.name)
+})
+
 
 
 

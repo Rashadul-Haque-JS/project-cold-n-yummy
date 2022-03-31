@@ -15,15 +15,28 @@
             <header>
                 <%- include('../partials/nav'); %>
             </header>
-            <main>
-                <form action="/login" method="POST">
-                    <h1>Login</h1>
-
-                    <input type="text" name="email" placeholder="Your e-mail" required>
-                    <input type="password" name="password" placeholder="choose e-mail" required>
-
-                    <button>LOGIN</button>
-                </form>
+            <main class="login-block">
+                <div class="login-form">
+                    <form action="/login" method="POST">
+                        <h1>Login</h1>
+    
+                        <input type="text" name="email" placeholder="Your e-mail" required>
+                        <input type="password" name="password" placeholder="choose e-mail" required>
+                        <button>LOGIN</button>
+                        <div class="social">
+                            <a href="#" class="fb btn">
+                             Login with Facebook
+                            </a>
+                            <a href="#" class="twitter btn">
+                             Login with Twitter
+                            </a>
+                            <a href="#" class="google btn">
+                             Login with Google+
+                            </a>
+                        </div>
+                    </form>
+                </div>
+                
             </main>
             <footer>
                 <%- include('../partials/footer'); %>

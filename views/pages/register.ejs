@@ -14,23 +14,24 @@
             <header>
                 <%- include('../partials/nav'); %>
             </header>
-            <main>
-
-            </main>
-            <main class="regi-form">
-                <form action="/register" method="POST">
-                    <h1>Create an account</h1>
-                    <input type="text" name="title" placeholder="Your name" required>
-                    <input type="text" name="email" placeholder="Your e-mail" required>
-                    <input type="password" name="password" placeholder="choose e-mail" required>
-                    <input type="password" name="repeat" placeholder="confirm password" required>
-                    <button>Register</button>
-                </form>
+            <main class="regi-block">
+                <div class="regi-form">
+                    <form action="/register" method="POST">
+                        <h1>Create an account</h1>
+                        <input type="text" name="name" placeholder="Your Name" required>
+                        <input type="text" name="email" placeholder="Your E-mail" required>
+                        <input type="password" name="password" placeholder="Choose Password" onChange="passwordControle()">
+                        <input type="password" name="confirm"  placeholder="Confirm Password" onChange="passwordControl()">
+                        <button type="submit">Register</button>
+                    </form>
+                </div>
+                
             </main>
             <footer>
             <%- include('../partials/footer'); %>
         </footer>
         </div>
+        <script src="/index.js"></script>
     </body>
 
 </html>
