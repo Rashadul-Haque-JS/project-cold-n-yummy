@@ -6,6 +6,7 @@
   "scripts": {
     "setup": "node develop/setup.js",
     "seed": "node develop/seed.js",
+    "start":"nodemon app.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {

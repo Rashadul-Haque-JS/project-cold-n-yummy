@@ -1,7 +1,7 @@
 const Sequelize = require('sequelize')
-const setupRegCustomers = require('./RegCustomers')
-const setupUnRegCustomers = require('./UnRegCustomers')
-const setupIceCreams = require('./IceCreams')
+const setupMembers = require('./Members')
+const setupVoters = require('./Voters')
+const setupCones = require('./Cones')
 const setupImages = require('./Images')
 
 
@@ -10,16 +10,14 @@ const sequelize = new Sequelize({
   storage: './yummy.sqlite'
 })
 
-const RegCustomers = setupRegCustomers(sequelize)
-const UnRegCustomers = setupUnRegCustomers(sequelize)
-const IceCreams = setupIceCreams(sequelize)
+const Members = setupMembers(sequelize)
+const Voters = setupVoters(sequelize)
+const Cones = setupCones(sequelize)
 const Images = setupImages(sequelize)
 
-IceCreams.hasMany(RegCustomers);
-RegCustomers.belongsTo(IceCreams);
-IceCreams.hasMany(UnRegCustomers);
-UnRegCustomers.belongsTo(IceCreams)
-IceCreams.hasOne(Images);
-Images.belongsTo(IceCreams)
+Cones.hasOne(Voters);
+Voters.belongsTo(Cones);
+// Cones.hasOne(Images);
+// Images.belongsTo(Cones)
 
-module.exports = { RegCustomers,UnRegCustomers , IceCreams ,Images}
+module.exports = { Members, Voters, Cones, Images }

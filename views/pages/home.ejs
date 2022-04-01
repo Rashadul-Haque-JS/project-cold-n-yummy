@@ -1,30 +1,56 @@
 <!DOCTYPE html>
 <html lang="en">
 
-    <head>
-        <meta charset="UTF-8">
-        <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <link rel="stylesheet" href="/css/style.css">
-        <title>Document</title>
-    </head>
+  <head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/css/style.css">
+    <title>Document</title>
+  </head>
 
-    <body>
-        <div class="wrapper">
-            <header>
-              <%- include('../partials/header'); %> 
-                <%- include('../partials/nav'); %>
-              </header>
-              
-              <main>
-                <img src="<%=data %> " alt="">
-              </main>
-              
-              <footer>
-                <%- include('../partials/footer'); %>
-              </footer>
+  <body>
+    <div class="wrapper">
+      <header>
+        <%- include('../partials/header'); %>
+          <%- include('../partials/nav'); %>
+      </header>
+
+      <main class="products">
+        <div class="products-container">
+          <% for (let image of allImages){%>
+            <article class="item">
+              <figure><img src='<%=image.image_name%>' alt="cones images" /></figure>
+              <h1>
+                <%=image.image_name.toString().split( /[\s,/.]+/)[2]%>
+              </h1>
+            </article>
+            <%}%>
         </div>
-       
-    </body>
+        <div class="aside-bar">
+          <form action="/votes" method="POST">
+            <h3>WHAT'S YOUR FLAVOR?</h3>
+            <input type="text" name="email" placeholder="Your Email">
+            <select name="votes" class="votes">
+              <option class="vote-option" value="">SELECT FOR VOTE</option>
+              <% for (let item of items){%>
+                <option value='<%=item.cones_name%>'>
+                  <%=item.cones_name%>
+                </option>
+                <%}%>
+            </select>
+            <button>VOTE</button>
+          </form>
+          <div class="side-dec">
+          </div>
+        </div>
+      </main>
+
+      <footer>
+        <%- include('../partials/footer'); %>
+      </footer>
+    </div>
+
+  </body>
 
 </html>

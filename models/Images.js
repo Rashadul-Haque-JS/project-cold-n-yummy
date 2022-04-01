@@ -1,34 +1,39 @@
-const {Model, DataTypes} = require('sequelize')
+const { Model, DataTypes } = require('sequelize')
+const { imagesLit, imageList} = require('../modules/flavours')
 
 
 module.exports = database => {
-    class Images extends Model{}
-  
-    Images.init(
-      {
-        imagesName: {
-          type: DataTypes.BLOB,
-          allowNull: false
-        },
-        
+  class Images extends Model { }
+
+  Images.init(
+    {
+
+      image_name: {
+        type: DataTypes.BLOB,
+        allowNull: false
       },
-      {
-        sequelize: database,
-        modelName: 'images',
-          logging:false,
-          underscored: true,
-          timestamps:false
-      }
-    )
 
-    const images = ['optimus_p.jpg', 'optimus_p.jpg', 'optimus_p.jpg','optimus_p.jpg','optimus_p.jpg','optimus_p.jpg','optimus_p.jpg','optimus_p.jpg','optimus_p.jpg','optimus_p.jpg']
-    
-    images.forEach(async(i) => {
+    },
+    {
+      sequelize: database,
+      modelName: 'images',
+      logging: false,
+      timestamps: false
+    }
+  )
 
-        await Images.create({
-            imagesName:`/images/${i}`
-        })
-    })
   
-    return Images
+  async function imgStup() {
+    await Images.sync({ force: true })
+    imageList.forEach(async (i) => {
+
+      await Images.create({
+        image_name: `/images/${i}`
+      })
+    })
   }
+  imgStup()
+
+
+  return Images
+}

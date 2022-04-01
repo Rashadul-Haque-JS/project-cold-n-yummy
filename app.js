@@ -1,33 +1,32 @@
 const express = require("express");
 app = express()
-const {Images} = require('./models/index')
+const {Images, Cones} = require('./models/index')
 
 app.use(express.static("public"));
 app.set("view engine", "ejs");
-app.use(express.urlencoded({ extended: true }));
+// app.use(express.urlencoded({ extended: true }));
 
 require('dotenv').config()
+
 // const session = require('cookie-session')
 // app.use( session({
 //     name: 'session',
 //     keys: [process.env.SESSION_SECRET]
 //   }))
 
-app.get('/', (req, res) => {
-    res.redirect('pages/home')
+
+
+app.get('/', async (req, res) => {
+    const allImages = await Images.findAll()
+    const items = await Cones.findAll()
+    res.render('pages/home',{allImages,items})
 })
 
-app.get('/pages/home', async (req, res) => {
-    const {imagesName} = await Images.findOne()
-    console.log(imagesName)
-    res.render('pages/home',{data:imagesName})
-})
-
-app.post('/register', (req, res) => {
+// app.post('/register', (req, res) => {
     
-    res.render('pages/register')
-    console.log(req.body.name)
-})
+//     res.render('pages/register')
+//     console.log(req.body.name)
+// })
 
 
 
@@ -42,7 +41,7 @@ app.post('/register', (req, res) => {
 
 
 
-const port = process.env.PORT || 8000;
+const port = process.env.PORT || 5000;
 
 app.listen(port, () => {
     console.log(`SERVER STARTED ON PORT: ${port}`);
