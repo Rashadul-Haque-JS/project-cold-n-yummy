@@ -10,14 +10,18 @@ const sequelize = new Sequelize({
   storage: './yummy.sqlite'
 })
 
-const Members = setupMembers(sequelize)
+
 const Voters = setupVoters(sequelize)
 const Cones = setupCones(sequelize)
+const Members = setupMembers(sequelize)
 const Images = setupImages(sequelize)
 
-Cones.hasOne(Voters);
-Voters.belongsTo(Cones);
-// Cones.hasOne(Images);
-// Images.belongsTo(Cones)
+// Associations
+Cones.hasMany(Voters, { foreignKey: 'coneId', sourceKey:'id' });
+Voters.belongsTo(Cones, { foreignKey: 'coneId', targetKey: 'id' });
+Cones.hasOne(Images);
+Images.belongsTo(Cones);
+
+
 
 module.exports = { Members, Voters, Cones, Images }

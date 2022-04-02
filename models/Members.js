@@ -50,10 +50,6 @@ module.exports = database => {
     }
   )
 
-  async function memberSetup() {
-    await Members.sync({ force: true });
-  }
-  memberSetup()
 
   return Members
 }

@@ -1,10 +1,10 @@
 const express = require("express");
 app = express()
-const {Images, Cones} = require('./models/index')
+const { Images, Cones, Voters,Members } = require('./models/index')
 
 app.use(express.static("public"));
 app.set("view engine", "ejs");
-// app.use(express.urlencoded({ extended: true }));
+app.use(express.urlencoded({ extended: true }));
 
 require('dotenv').config()
 
@@ -19,14 +19,26 @@ require('dotenv').config()
 app.get('/', async (req, res) => {
     const allImages = await Images.findAll()
     const items = await Cones.findAll()
-    res.render('pages/home',{allImages,items})
+    res.render('pages/home', { allImages, items })
 })
 
 // app.post('/register', (req, res) => {
-    
+
 //     res.render('pages/register')
 //     console.log(req.body.name)
 // })
+
+
+app.post('/vote', async (req, res) => {
+    const { email, number } = req.body
+    await Voters.create({
+        email: email,
+        coneId: number
+
+    })
+
+
+})
 
 
 
@@ -45,4 +57,4 @@ const port = process.env.PORT || 5000;
 
 app.listen(port, () => {
     console.log(`SERVER STARTED ON PORT: ${port}`);
-  });
+});

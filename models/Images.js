@@ -1,5 +1,6 @@
+
 const { Model, DataTypes } = require('sequelize')
-const { imagesLit, imageList} = require('../modules/flavours')
+const { imageList} = require('../modules/flavours')
 
 
 module.exports = database => {
@@ -7,6 +8,7 @@ module.exports = database => {
 
   Images.init(
     {
+     
 
       image_name: {
         type: DataTypes.BLOB,
@@ -22,17 +24,6 @@ module.exports = database => {
     }
   )
 
-  
-  async function imgStup() {
-    await Images.sync({ force: true })
-    imageList.forEach(async (i) => {
-
-      await Images.create({
-        image_name: `/images/${i}`
-      })
-    })
-  }
-  imgStup()
 
 
   return Images

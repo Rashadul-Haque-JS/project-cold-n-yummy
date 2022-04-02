@@ -1,19 +1,19 @@
 html {
-    scroll-behavior: smooth;
-  }
+  scroll-behavior: smooth;
+}
 
-  @import url('https://fonts.googleapis.com/css2?family=Fira+Sans:wght@200;300;400;500&family=Fredoka+One&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Fira+Sans:wght@200;300;400;500&family=Fredoka+One&display=swap');
 
 
-  :root {
-    --nav-color:#793C75;
-    --btn-color:#FFFB9F;
-    --card-bg-color:#E8C882;
-    --input-field-color:#D5E7DD;
-    --offer-color:#F29CC2;
-    --primary-fonts: 'Fredoka One', cursive;
-    --secondary-fonts: "Fira Sans", sans-serif;
-  }
+:root {
+  --nav-color:#793C75;
+  --btn-color:#FFFB9F;
+  --card-bg-color:#E8C882;
+  --input-field-color:#D5E7DD;
+  --offer-color:#F29CC2;
+  --primary-fonts: 'Fredoka One', cursive;
+  --secondary-fonts: "Fira Sans", sans-serif;
+}
 
 *{
 margin:0;
@@ -45,26 +45,26 @@ height: auto;
 }
 
 .offer{
-  font-family: var(--secondary-fonts);
-  padding: 20px;
+font-family: var(--secondary-fonts);
+padding: 20px;
 }
 
 .offer h1{
-  font-size: 1.4rem;
-  text-align: center;
-  color:var(--offer-color);
-  margin: 12px;
+font-size: 1.4rem;
+text-align: center;
+color:var(--offer-color);
+margin: 12px;
 }
 
 .offer h2{
-  font-size: 1.2rem;
-  text-align: center;
-  color:var(--offer-color);
-  margin: 12px;
+font-size: 1.2rem;
+text-align: center;
+color:var(--offer-color);
+margin: 12px;
 }
 
 .offer span {
-  color: var(--nav-color);
+color: var(--nav-color);
 }
 
 .wrapper nav{
@@ -82,112 +82,112 @@ padding: 0px 32px;
 }
 
 .regi-block, .login-block{
-  display: grid;
-  place-items: center;
-  margin-top: 150px;
-  
-}
-
- .regi-form, .login-form{
-  width: 350px;
-  height: 450px;
-  background-color: #F29CC2;
-  box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
- }
- 
- form{
-   display: flex;
-   flex-direction: column;
-   justify-content: space-between;  
-   padding: 24px;
-   font-family: var(--secondary-fonts);
-
- }
-
- form h1{
-  text-align: center;
-  font-size: 1.2rem;
-  
+display: grid;
+place-items: center;
+margin-top: 150px;
 
 }
 
- input[type="text"],input[type="password"]{
-  padding: 4px;
- }
+.regi-form, .login-form{
+width: 350px;
+height: 450px;
+background-color: #F29CC2;
+box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+}
 
- input[type="text"],input[type="password"],  button{
-  font-size: 1.25rem;
-  margin: 16px 0px;
+form{
+ display: flex;
+ flex-direction: column;
+ justify-content: space-between;  
+ padding: 24px;
+ font-family: var(--secondary-fonts);
+
+}
+
+form h1{
+text-align: center;
+font-size: 1.2rem;
+
+
+}
+
+input[type="text"],input[type="password"]{
+padding: 4px;
+}
+
+input[type="text"],input[type="password"],  button{
+font-size: 1.25rem;
+margin: 16px 0px;
 
 }
 
 .wrapper form > button{
-  background-color: var(--btn-color);
-  border: 0;
-  outline: none;
-  padding: 1.25rem;
-  font-weight: 900;
-  cursor: pointer;
+background-color: var(--btn-color);
+border: 0;
+outline: none;
+padding: 1.25rem;
+font-weight: 900;
+cursor: pointer;
 }
 
 .wrapper .social{
-  margin-top: 20px;
+margin-top: 20px;
 }
 
 .wrapper .social a{
-  display:flex;
-  flex-direction: column;
-  align-items: center;
-  padding:8px;
-  color:rgb(53, 53, 224)
+display:flex;
+flex-direction: column;
+align-items: center;
+padding:8px;
+color:rgb(53, 53, 224)
 }
 
 .products{
-  display: grid;
-  grid-template-columns: 3fr 1fr;
-  margin-top: 40px;
-  height: 900px;
-  padding-bottom: 100px;
-  overflow: hidden;
+display: grid;
+grid-template-columns: 3fr 1fr;
+margin-top: 40px;
+height: 900px;
+padding-bottom: 100px;
+overflow: hidden;
 }
 
 .products-container{
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  grid-row-gap: 72px;
-  place-items: center;
-  margin: 40px;
-  height: 800px;
-  overflow: hidden;
-  overflow-y: scroll;
-  padding-bottom: 50px;
+display: grid;
+grid-template-columns: repeat(2, 1fr);
+grid-row-gap: 72px;
+place-items: center;
+margin: 40px;
+height: 800px;
+overflow: hidden;
+overflow-y: scroll;
+padding-bottom: 50px;
 }
 
 .items {
-  display: flex;
-  width: 100%;
-  min-height: 400;
-  justify-content: center;
+display: flex;
+width: 100%;
+min-height: 400;
+justify-content: center;
 }
 
 .item {
-  width: 300px;
-  min-height: 400px;
-  background: #ffdc62;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  text-align: center;
-  border-radius:10px;
-  box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+width: 300px;
+min-height: 400px;
+background: #ffdc62;
+display: flex;
+flex-direction: column;
+align-items: center;
+text-align: center;
+border-radius:10px;
+box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
 }
 
 
 .item img {
-  width: 270px;
-  height: 270px;
-  border-radius: 8px;
-  margin-top: 12px;
+width: 270px;
+height: 270px;
+border-radius: 8px;
+margin-top: 12px;
 }
 
 .item h1 {
@@ -197,66 +197,65 @@ margin-top: 40px;
 }
 
 .aside-bar{
-  display: flex;
-  flex-direction:column;
-  align-items: center;
-  place-items: start;
-  margin:0px 40px;
+display: flex;
+flex-direction:column;
+align-items: center;
+place-items: start;
+margin:0px 40px;
 }
 
 .aside-bar form{
-  margin-top: 40px;
-  height: 400px;
-  border-radius: 10px;
-  background-color: var(--input-field-color);
+margin-top: 40px;
+height: 400px;
+border-radius: 10px;
+background-color: var(--input-field-color);
 }
 
 .aside-bar form input, select{
-  border: none;
+border: none;
 }
 
 .aside-bar form  select{
-  padding: 10px 8px;
+padding: 10px 8px;
 }
 
 .aside-bar form  h3{
-  text-align:center;
-  margin-top: 20px;
-  font-family: var(--secondary-fonts);
+text-align:center;
+margin-top: 20px;
+font-family: var(--secondary-fonts);
 }
 
 .aside-bar form button{
-  border-radius: 4px;
+border-radius: 4px;
 }
 
 ::-webkit-scrollbar {
-  width: 10px;
+width: 10px;
 }
 
 ::-webkit-scrollbar-track {
-  box-shadow: inset 0 0 5px #808080; 
-  border-radius: 10px;
+box-shadow: inset 0 0 5px #808080; 
+border-radius: 10px;
 }
 
 ::-webkit-scrollbar-thumb {
-  background: var(--input-field-color); 
-  border-radius: 4px;
+background: var(--input-field-color); 
+border-radius: 4px;
 }
 
 .aside-bar .side-dec{
-  width: 299px;
-  height: 260px;
-  background-image:url(/images/summer_peace.png) ;
-  background-size: cover;
-  margin-top: 120px;
-  border-radius: 4px;
+width: 299px;
+height: 260px;
+background-image:url(/images/summer_peace.png) ;
+background-size: cover;
+margin-top: 120px;
+border-radius: 4px;
 }
 
 footer{
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  padding:32px;
-  margin-top: 40px;
+display: flex;
+justify-content: center;
+align-items: center;
+padding:32px;
+margin-top: 40px;
 }
-

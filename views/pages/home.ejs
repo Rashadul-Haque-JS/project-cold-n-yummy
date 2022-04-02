@@ -11,8 +11,8 @@
 
   <body>
     <div class="wrapper">
-      <header>
-        <%- include('../partials/header'); %>
+      <header >
+        <%- include('../partials/header') %>
           <%- include('../partials/nav'); %>
       </header>
 
@@ -28,14 +28,14 @@
             <%}%>
         </div>
         <div class="aside-bar">
-          <form action="/votes" method="POST">
+          <form action="/vote" method="POST">
             <h3>WHAT'S YOUR FLAVOR?</h3>
-            <input type="text" name="email" placeholder="Your Email">
-            <select name="votes" class="votes">
+            <input type="text" name="email" placeholder="Your e-mail">
+            <select name="number" class="votes">
               <option class="vote-option" value="">SELECT FOR VOTE</option>
               <% for (let item of items){%>
-                <option value='<%=item.cones_name%>'>
-                  <%=item.cones_name%>
+                <option value='<%=item.id%>'>
+                  <%=item.name%>
                 </option>
                 <%}%>
             </select>

@@ -1,15 +1,18 @@
-const { Model, DataTypes } = require('sequelize')
-const flavours = require('../modules/flavours').flavours()
+
+const { Model, DataTypes} = require('sequelize')
 
 module.exports = database => {
-  class Cones extends Model { }
+  class Cones extends Model {}
 
   Cones.init(
     {
-
-      cones_name: {
+      name: {
         type: DataTypes.STRING,
-        allowNull: false
+        
+      },
+
+      vote: {
+        type: DataTypes.INTEGER,
       },
     },
 
@@ -20,27 +23,6 @@ module.exports = database => {
       timestamps: false
     }
   )
-
-
-  async function conesSetup() {
-    await Cones.sync({ force: true });
-  }
-
-  async function coneSeed() {
-    flavours.forEach(async (item) => {
-      await Cones.create({
-        cones_name: item
-      })
-
-    })
-  }
-
-  async function coneStart() {
-    await conesSetup()
-    await coneSeed()
-  }
-
-  coneStart()
 
 
 
