@@ -1,0 +1,14 @@
+
+<% if(true){ %>
+    <div>
+        <a href="/pages/login">LOGIN</a>
+        <a href="/pages/register">REGISTER</a>
+    </div>
+    <% } else{ %>
+        <div class="member-log">
+            <p>Welcome Rashadul! </p>
+            <form action="/logout" method="POST">
+                <button>Logout</button>
+            </form>
+        </div>
+        <% } %>

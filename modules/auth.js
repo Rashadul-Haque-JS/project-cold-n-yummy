@@ -1,9 +1,40 @@
-const register = (req, res) => {
-    res.status(200).send(`Your message is ${req.params.message}`)
+
+const { Members } = require('../models/index')
+const { alreadyRegistered, unmacthed } = require('./alerts')
+
+//check member's existence
+const registered = async (email) => {
+    const registered = await Members.findOne({ where: { email } });
+    return registered ? false : true
 }
 
-const login = async(req, res) => {
-    console.log(req.body)
+//check password match
+const passwordControl = (password, confirm) => {
+    return password == confirm ? true : false
 }
 
-module.exports = {register, login}
+// Create new member
+const createMember = () => async (req, res) => {
+    const { name, email, password, confirm } = req.body
+    const valid = passwordControl(password, confirm)
+    const regiCheck = await registered(email)
+    if (!regiCheck) {
+        res.send(alreadyRegistered);
+    } else if (!valid) {
+        // res.render('pages/register', { message: 'Password not matched!' })
+        res.send(unmacthed);
+    } else {
+        const member = await Members.create({
+            name,
+            email,
+            password_hash: password
+        })
+            req.session.member = {
+            membername: member.membername,
+            id: member.id
+        }
+    }
+
+}
+
+module.exports = { createMember }

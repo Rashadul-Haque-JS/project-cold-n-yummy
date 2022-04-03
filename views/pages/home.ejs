@@ -12,8 +12,8 @@
   <body>
     <div class="wrapper">
       <header >
-        <%- include('../partials/header') %>
-          <%- include('../partials/nav'); %>
+        <%- include('../partials/header'); %>
+        <%- include('../partials/nav'); %>
       </header>
 
       <main class="products">
@@ -28,9 +28,9 @@
             <%}%>
         </div>
         <div class="aside-bar">
-          <form action="/vote" method="POST">
+          <form class="authorisation" action="/vote" method="POST">
             <h3>WHAT'S YOUR FLAVOR?</h3>
-            <input type="text" name="email" placeholder="Your e-mail">
+            <input type="text" name="email" placeholder="Your e-mail" required>
             <select name="number" class="votes">
               <option class="vote-option" value="">SELECT FOR VOTE</option>
               <% for (let item of items){%>

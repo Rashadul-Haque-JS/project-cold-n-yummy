@@ -19,6 +19,8 @@ const Images = setupImages(sequelize)
 // Associations
 Cones.hasMany(Voters, { foreignKey: 'coneId', sourceKey:'id' });
 Voters.belongsTo(Cones, { foreignKey: 'coneId', targetKey: 'id' });
+Members.hasOne(Voters);
+Voters.belongsTo(Members);
 Cones.hasOne(Images);
 Images.belongsTo(Cones);
 

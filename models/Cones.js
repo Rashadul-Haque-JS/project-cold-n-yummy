@@ -13,6 +13,7 @@ module.exports = database => {
 
       vote: {
         type: DataTypes.INTEGER,
+        
       },
     },
 
@@ -23,8 +24,6 @@ module.exports = database => {
       timestamps: false
     }
   )
-
-
 
   return Cones
 }

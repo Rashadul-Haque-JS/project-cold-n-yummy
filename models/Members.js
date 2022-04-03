@@ -3,8 +3,8 @@ const bcrypt = require('bcryptjs')
 
 module.exports = database => {
   class Members extends Model {
-    static async authenticate(membersName, password) {
-      const members = await members.findOne({ where: { membersName } })
+    static async authenticate(email, password) {
+      const members = await Members.findOne({ where: { email } })
       if (!members) {
         throw new Error('Invalid members name')
       }
@@ -17,22 +17,17 @@ module.exports = database => {
 
   Members.init(
     {
-      member_id: {
-        type: DataTypes.INTEGER,
-        primaryKey: true,
-        allowNull: false
-      },
       name: {
-        type: DataTypes.TEXT,
+        type: DataTypes.STRING,
         allowNull: false
       },
 
       email: {
-        type: DataTypes.TEXT,
+        type: DataTypes.STRING,
         allowNull: false
       },
       password_hash: {
-        type: DataTypes.TEXT,
+        type: DataTypes.STRING,
         allowNull: false
       },
     },
@@ -45,7 +40,6 @@ module.exports = database => {
         }
       },
       logging: false,
-
       timestamps: false
     }
   )

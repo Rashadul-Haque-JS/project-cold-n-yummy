@@ -8,4 +8,7 @@ function passwordControl() {
     } else {
       confirm.setCustomValidity('Passwords do not match');
     }
-  }
+  console.log(password.value)
+}
+  
+passwordControl()

@@ -95,7 +95,7 @@ background-color: #F29CC2;
 box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
 }
 
-form{
+.authorisation{
  display: flex;
  flex-direction: column;
  justify-content: space-between;  
@@ -104,7 +104,7 @@ form{
 
 }
 
-form h1{
+.authorisation h1{
 text-align: center;
 font-size: 1.2rem;
 
@@ -121,7 +121,7 @@ margin: 16px 0px;
 
 }
 
-.wrapper form > button{
+.wrapper .authorisation > button{
 background-color: var(--btn-color);
 border: 0;
 outline: none;
@@ -251,6 +251,30 @@ background-size: cover;
 margin-top: 120px;
 border-radius: 4px;
 }
+
+.member-log,.member-log form{
+  display: flex;
+  justify-content: space-between;
+}
+
+.member-log p{
+  color:var(--input-field-color);
+  text-transform: uppercase;
+  /* background-color: var(--input-field-color);
+  padding: 2px 8px;
+  border-radius: 4px */
+}
+
+.member-log form button{
+  background-color: var(--btn-color);
+  margin: 0px 24px;
+  font-size: .9rem;
+  font-weight: 500;
+  padding: 4px 8px;
+  border-radius: 4px;
+}
+
+
 
 footer{
 display: flex;
