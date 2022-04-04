@@ -5,7 +5,7 @@
     </div>
     <% if(typeof member != 'undefined'){ %> 
         <div class="member-log">
-            <p>Welcome  <%=member.email %>  ! </p>
+            <p>Welcome <span> <%=member.name %> </span> ! </p>
             <form action="/logout" method="POST">
                 <button>Logout</button>
             </form>

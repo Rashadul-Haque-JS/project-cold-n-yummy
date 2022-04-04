@@ -7,7 +7,9 @@ const renderInit = () => async (req, res) => {
     const allImages = await Images.findAll()
     const items = await Cones.findAll()
     const member = req.session.member
-    res.render('pages/home', { allImages, items ,member})
+    console.log(member)
+    res.render('pages/home', { allImages, items, member })
+    
 }
 
     module.exports = { renderInit}

@@ -37,4 +37,13 @@ const createMember = () => async (req, res) => {
 
 }
 
-module.exports = { createMember }
+const renderRegister = () => (req, res) => {
+    const isSession = req.session.member
+    if (isSession == null) {
+        res.render('pages/register')
+    }
+    res.redirect('/')
+    console.log('Here is the '+ isSession)
+}
+
+module.exports = { createMember, renderRegister }

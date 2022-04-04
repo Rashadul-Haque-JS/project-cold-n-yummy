@@ -4,8 +4,8 @@ const { Images, Cones, Voters, Members } = require('./models/index')
 const { renderInit } = require('./modules/initial')
 const { voteCast } = require('./modules/vote')
 
-const { createMember } = require('./modules/auth/register')
-const { memberLogin } = require('./modules/auth/login')
+const { createMember,renderRegister } = require('./modules/auth/register')
+const { memberLogin,renderLogin } = require('./modules/auth/login')
 
 app.use(express.static("public"));
 app.set("view engine", "ejs");
@@ -24,21 +24,13 @@ app.use(session({
 app.get('/', renderInit())
 
 // Authentication's
-app.get('/pages/register', (req, res) => {
-    res.render('pages/register')
-})
-
-
+app.get('/pages/register',renderRegister())
 
 app.post('/register', createMember())
 
 app.post('/login', memberLogin())
 
-app.get('/pages/login', (req, res) => {
-    const errorMessage = req.session.errorMessage
-    req.session.errorMessage = null
-    res.render('pages/login', { errorMessage })
-})
+app.get('/pages/login',renderLogin() )
 
 app.post('/logout', (req, res) => {
     req.session = null
@@ -47,38 +39,24 @@ app.post('/logout', (req, res) => {
 })
 
 
+
 app.post('/vote', voteCast())
 
 app.get('/pages/thanks', async (req, res) => {
     const topCones = await Cones.max('vote_count');
-    res.render('pages/thanks', { topCones })
+    const member = req.session.member
+    res.render('pages/thanks', { topCones,member:member })
     console.log(topCones)
 })
 
 
-
-app.get('/pages/welcome', (req, res) => {
-    const member = req.session.member
-    res.render('pages/welcome', { member: member })
-})
-
-
-app.get("/pages/thanks", async (req, res) => {
-    const newVoter = await Voters.findAll({
-        limit: 1,
-        order: [['createdAt', 'DESC']]
-    })
-    res.render("pages/thanks", { thanks: newVoter });
-    console.log(newVoter)
-});
-
 app.get('/pages/about', (req, res) => {
- 
-    res.render('pages/about')
+    const member = req.session.member
+    res.render('pages/about',{member:member})
 
 })
 
-const port = 5000;
+const port = 8000;
 
 app.listen(port, () => {
     console.log(`SERVER STARTED ON PORT: ${port}`);
