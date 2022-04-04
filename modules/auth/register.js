@@ -30,9 +30,13 @@ const createMember = () => async (req, res) => {
             password_hash: password
         })
             req.session.member = {
-            membername: member.membername,
-            id: member.id
-        }
+            name: member.name,
+            id: member.id,
+            email:member.email
+        
+            }
+        console.log('my neme '+ req.session.member.membername)
+        res.redirect('pages/login')
     }
 
 }
@@ -41,9 +45,9 @@ const renderRegister = () => (req, res) => {
     const isSession = req.session.member
     if (isSession == null) {
         res.render('pages/register')
+    } else {
+        res.redirect('/')
     }
-    res.redirect('/')
-    console.log('Here is the '+ isSession)
 }
 
 module.exports = { createMember, renderRegister }

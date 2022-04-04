@@ -1,5 +1,5 @@
 
-const imageList = ['amul.jpg', 'crunchy.png', 'kulfi.png', 'optimus.png', 'pinky.jpg', 'seasalt.png', 'tricon.png', 'velvet.png', 'sundew.png', 'lovello.png']
+const imageList = ['lovello.png', 'cornetto.png', 'orbizz.png', 'optimus.png', 'pinky.png', 'kulfi.png', 'tricon.png', 'valvet.png', 'mallow.png', 'prillon.png']
 
 
 function flavours() {

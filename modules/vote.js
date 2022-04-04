@@ -1,4 +1,5 @@
 
+const Sequelize = require('sequelize')
 const { Cones, Voters, Members } = require('../models/index')
 const {alreadyVoted} = require('./alerts')
 
@@ -50,4 +51,31 @@ const voteCast = () => async (req, res) => {
 
 }
 
-module.exports = { voteCast }
+
+// Get most popular cones
+const mostPopular = ()=>async (req, res) => {
+    const member = req.session.member
+    const conesList = await Cones.findAll({
+        order: [[Sequelize.col('vote_count'), 'DESC']],
+        limit: 10,
+        raw:true
+    })
+    const topCones = []
+    conesList.forEach(c => {
+        if (c.vote_count > 0) {
+            topCones.push(c)
+        }
+    })
+
+    if (topCones.length > 0) {
+    res.render('pages/thanks', { topCones, member: member })
+    console.log(topCones)
+    } else{
+    console.log('No cones has got any vote yet!')
+    }
+    
+
+    
+}
+
+module.exports = { voteCast, mostPopular }

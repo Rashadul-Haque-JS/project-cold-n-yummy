@@ -17,21 +17,40 @@
       <main class="thanks">
         <div class="greetings">
           <img src="/images/thanks.png" alt="Thank you card!">
-          <section >
-            <h1>Top 10 favorit cones</h1>
-            <h2>
-              <%=topCones %>
-            </h2>
+          <section>
+            <h1>Thank you for participating!</h1>
+            
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Nulla, corrupti deleniti ut dolorum amet voluptatem est incidunt corporis ab architecto accusantium, magnam, commodi libero alias? Harum maxime necessitatibus.</p>
+            <span>Scroll to see the top 10 cones.</span>
           </section>
-         
         </div>
+        <hr class="divider">
         <section class="top-cones">
-          <h1 class="query"> Voter </h1>
-          <p class="query-source">
-      
-          </p>
+          <h1>Top 10 popular cones</h1>
+          <div class="popular-block">
+            <% for (let cones of topCones){%>
+              <article class="cone-card">
+                <div class="title">
+                  <p>Name</p>
+                  <h2>
+                    <%=cones.name %>
+                  </h2>
+                </div>
+                <img src="/images/<%=cones.name %>.png" alt="">
+
+                <div class="title">
+                  <p>Total vote</p>
+                  <h2>
+                    <%=cones.vote_count %>
+                  </h2>
+                </div>
+
+              </article>
+              <%}%>
+          </div>
+
         </section>
-        
+
       </main>
       <footer>
         <%- include('../partials/footer'); %>
@@ -39,5 +58,5 @@
     </div>
 
   </body>
-  
+
 </html>

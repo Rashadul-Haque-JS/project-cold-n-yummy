@@ -1,14 +1,17 @@
 
 
-function passwordControl() {
-    const password = document.querySelector('input[name=password]');
-    const confirm = document.querySelector('input[name=confirm]');
-    if (confirm.value === password.value) {
-      confirm.setCustomValidity('');
-    } else {
-      confirm.setCustomValidity('Passwords do not match');
-    }
-  console.log(password.value)
-}
+let placeholder = document.querySelector('#email')
+let memberEmail = document.querySelector('.member-email').innerHTML
+
+const showEmali = () => {
   
-passwordControl()
+  if (memberEmail) {
+    return placeholder.value = memberEmail
+  } else {
+    console.log('no')
+    return placeholder.value = `type your email`
+  }
+
+}
+
+showEmali()

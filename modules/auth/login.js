@@ -29,8 +29,10 @@ const renderLogin = ()=>(req, res) => {
         const errorMessage = req.session.errorMessage
         req.session.errorMessage = null
         res.render('pages/login', { errorMessage })
+    } else {
+        res.redirect('/')
     }
-    res.redirect('/')
+    
 }
 
 
