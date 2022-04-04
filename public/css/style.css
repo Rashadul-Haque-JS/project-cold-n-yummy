@@ -314,6 +314,30 @@ border-radius: 4px;
   color: var(--input-field-color);
 }
 
+.thanks{
+padding:72px 32px ;
+}
+
+.greetings{
+  display:flex;
+  justify-content: space-around;
+  width: 100%;
+  min-height: 350px;
+}
+.greetings section{
+width: 400px;
+}
+
+.thanks .top-cones{
+  padding:40px;
+  margin-top: 40px;
+}
+
+.greetings img{
+  width: 300px;
+  margin-bottom: 24px;
+}
+
 .copy-right{
   text-align: center;
   margin-bottom: 40px;

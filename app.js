@@ -28,6 +28,8 @@ app.get('/pages/register', (req, res) => {
     res.render('pages/register')
 })
 
+
+
 app.post('/register', createMember())
 
 app.post('/login', memberLogin())
@@ -53,9 +55,11 @@ app.get('/pages/thanks', async (req, res) => {
     console.log(topCones)
 })
 
-app.get('/partials/nav', (req, res) => {
-    res.render('partials/nav', { member: req.session.member })
-    console.log(req.session)
+
+
+app.get('/pages/welcome', (req, res) => {
+    const member = req.session.member
+    res.render('pages/welcome', { member: member })
 })
 
 
@@ -69,6 +73,7 @@ app.get("/pages/thanks", async (req, res) => {
 });
 
 app.get('/pages/about', (req, res) => {
+ 
     res.render('pages/about')
 
 })

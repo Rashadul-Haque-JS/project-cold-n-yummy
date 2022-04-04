@@ -1,5 +1,19 @@
 
 const { Members } = require('../../models/index')
+// const { Images, Cones, Voters, Members } = require('../../models/index')
+
+// let allImages;
+// let items;
+
+// const getData = async () => {
+//     allImages = await Images.findAll()
+//     items = await Cones.findAll()
+
+
+// }
+
+// getData()
+    
 
 const memberLogin = ()=>async (req, res) => {
     try {
@@ -7,10 +21,11 @@ const memberLogin = ()=>async (req, res) => {
         const member = await Members.authenticate(email, password)
         req.session.member = {
             email: member.email,
-            id: member.id
+            id: member.id,
+            raw:true
         }
-        res.redirect('/partials/nav')
-        console.log(member.email)
+//Initial rendering
+    res.redirect('pages/welcome')
        
         
     } catch (error) {

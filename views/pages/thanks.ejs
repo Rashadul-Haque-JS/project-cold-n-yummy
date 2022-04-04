@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
   <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -10,22 +11,33 @@
 
   <body>
     <div class="wrapper">
-    <header >
+      <header>
         <%- include('../partials/nav'); %>
-    </header>
-      <img src="/thanks.jpeg" alt="A grateful image" width="400">
-
-      <section>
-        <h1 class="query"> Query from: </h1>
-        <p class="query-source">
-       
-        </p>
-      </section>
-      <section>
-        <h1>Top 10 favorit cones</h1>
-        <h2><%=topCones %> </h2>
-      </section>
+      </header>
+      <main class="thanks">
+        <div class="greetings">
+          <img src="/images/thanks.png" alt="">
+          <section >
+            <h1>Top 10 favorit cones</h1>
+            <h2>
+              <%=topCones %>
+            </h2>
+          </section>
+         
+        </div>
+        <section class="top-cones">
+          <h1 class="query"> Voter </h1>
+          <p class="query-source">
+      
+          </p>
+        </section>
+        
+      </main>
+      <footer>
+        <%- include('../partials/footer'); %>
+      </footer>
     </div>
-  </body>
 
+  </body>
+  
 </html>

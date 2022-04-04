@@ -6,8 +6,8 @@ const { Images, Cones, Voters, Members } = require('../models/index')
 const renderInit = () => async (req, res) => {
     const allImages = await Images.findAll()
     const items = await Cones.findAll()
-
-    res.render('pages/home', { allImages, items })
+    const member = req.session.member
+    res.render('pages/home', { allImages, items ,member})
 }
 
     module.exports = { renderInit}
