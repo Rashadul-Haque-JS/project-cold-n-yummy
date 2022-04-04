@@ -4,7 +4,8 @@ const { Images, Cones, Voters, Members } = require('./models/index')
 const { renderInit } = require('./modules/initial')
 const { voteCast } = require('./modules/vote')
 
-const { createMember } = require('./modules/auth')
+const { createMember } = require('./modules/auth/register')
+const { memberLogin } = require('./modules/auth/login')
 
 app.use(express.static("public"));
 app.set("view engine", "ejs");
@@ -18,43 +19,18 @@ app.use(session({
     keys: [process.env.SESSION_SECRET]
 }))
 
-
 //Request handelers block
 
 app.get('/', renderInit())
 
+// Authentication's
 app.get('/pages/register', (req, res) => {
     res.render('pages/register')
 })
 
-app.get('/', (req, res) => {
-    res.render('/')
-})
-
 app.post('/register', createMember())
 
-app.get('/partials/welcome', (req,res) => {
-    res.render('partials/welcome', { member: req.session })
-    res.redirect('/')
-  })
-
-app.post('/login', async (req, res) => {
-    try {
-        const { email, password } = req.body
-        const member = await Members.authenticate(email, password)
-        req.session.member = {
-            email: member.email,
-            id: member.id
-        }
-        res.redirect('partials/welcome')
-        console.log(member.email)
-       
-        
-    } catch (error) {
-        req.session.errorMessage = error.message
-        res.redirect('pages/login')
-    }
-})
+app.post('/login', memberLogin())
 
 app.get('/pages/login', (req, res) => {
     const errorMessage = req.session.errorMessage
@@ -62,30 +38,40 @@ app.get('/pages/login', (req, res) => {
     res.render('pages/login', { errorMessage })
 })
 
-app.post('/logout', (req,res) => {
+app.post('/logout', (req, res) => {
     req.session = null
     res.redirect('/')
     console.log(req.session)
-  })
+})
 
 
 app.post('/vote', voteCast())
 
+app.get('/pages/thanks', async (req, res) => {
+    const topCones = await Cones.max('vote_count');
+    res.render('pages/thanks', { topCones })
+    console.log(topCones)
+})
+
+app.get('/partials/nav', (req, res) => {
+    res.render('partials/nav', { member: req.session.member })
+    console.log(req.session)
+})
 
 
+app.get("/pages/thanks", async (req, res) => {
+    const newVoter = await Voters.findAll({
+        limit: 1,
+        order: [['createdAt', 'DESC']]
+    })
+    res.render("pages/thanks", { thanks: newVoter });
+    console.log(newVoter)
+});
 
-   
-        
-      
-  
+app.get('/pages/about', (req, res) => {
+    res.render('pages/about')
 
-
-
-
-
-
-
-
+})
 
 const port = 5000;
 

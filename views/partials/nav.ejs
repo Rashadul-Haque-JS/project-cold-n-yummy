@@ -1,7 +1,19 @@
 <nav>
     <div class="prime-nav-container">
         <a href="/">HOME</a>
-        <a href="/top">MOST-FAVOURITE</a>
+        <a href="pages/about">ABOUT</a>
     </div>
-    <%-include('./welcome')  %> 
+    <% if(!true){ %>
+        <div class="member-log">
+            <p>Welcome  Rashadul! </p>
+            <form action="/logout" method="POST">
+                <button>Logout</button>
+            </form>
+        </div>
+        <% } else{ %>
+            <div>
+                <a href="/pages/login">LOGIN</a>
+                <a href="/pages/register">REGISTER</a>
+            </div>
+            <% } %>
 </nav>

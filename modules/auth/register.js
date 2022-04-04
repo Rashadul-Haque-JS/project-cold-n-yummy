@@ -1,6 +1,6 @@
 
-const { Members } = require('../models/index')
-const { alreadyRegistered, unmacthed } = require('./alerts')
+const { Members } = require('../../models/index')
+const { alreadyRegistered, unmacthed } = require('../alerts')
 
 //check member's existence
 const registered = async (email) => {

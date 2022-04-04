@@ -7,7 +7,7 @@ function createCones() {
     const names = flavours().forEach(async (name) => {
         await Cones.create({
             name: name,
-            vote:0
+            vote_count:0
         })
         
     })
@@ -17,10 +17,11 @@ function createCones() {
 
 
 function createImages() {
-    const images = imageList.forEach(async (i) => {
+    const images = imageList.forEach(async (i,index) => {
 
         await Images.create({
-            image_name: `/images/${i}`
+            image_name: `/images/${i}`,
+            coneId: index + 1
         })
     })
     return images

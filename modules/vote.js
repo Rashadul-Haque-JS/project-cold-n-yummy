@@ -13,7 +13,12 @@ const voted = async (email) => {
 const memberVote = async (email) => {
     if (email) {
         const isMember = await Members.findOne({ where: { email } })
-        return isMember
+        if (isMember) {
+            return isMember
+        } else {
+            return ''
+        }
+        
     } else {
         return ''
     }
@@ -35,11 +40,10 @@ const voteCast = () => async (req, res) => {
         })
 
         const selected = await Cones.findOne({ where: { id: number } })
-        await selected.save()
+        selected.increment('vote_count',{by:1})
         console.log(selected)
 
-
-        res.redirect('/')
+        res.redirect('pages/thanks')
     } else {
         res.send(alreadyVoted);
     }

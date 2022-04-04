@@ -11,7 +11,7 @@ module.exports = database => {
         
       },
 
-      vote: {
+      vote_count: {
         type: DataTypes.INTEGER,
         
       },

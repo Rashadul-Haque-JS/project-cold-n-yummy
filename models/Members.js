@@ -34,6 +34,7 @@ module.exports = database => {
     {
       sequelize: database,
       modelName: 'members',
+      logging: false,
       hooks: {
         beforeCreate(instance, options) {
           instance.password_hash = bcrypt.hashSync(instance.password_hash)
