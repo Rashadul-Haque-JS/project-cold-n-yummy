@@ -24,9 +24,9 @@
         <div class="products-container">
           <% for (let image of allImages){%>
             <article class="item">
-              <figure><img src='<%=image.image_name%>' alt="cones images" /></figure>
+              <figure><img src='images/<%=image.image_name%>' alt="cones images" /></figure>
               <h1>
-                <%=image.image_name.toString().split( /[\s,/.]+/)[2]%>
+                <%=image.image_name.toString().split( /[\s,/.]+/)[0]%>
               </h1>
             </article>
             <%}%>
@@ -35,7 +35,7 @@
           <form class="authorisation" action="/vote" method="POST">
             <h3>WHAT'S YOUR FLAVOR?</h3>
             <input type="text" id="email" name="email" placeholder="type your email" required>
-            <select name="number" class="votes">
+            <select name="number" class="votes" required>
               <option class="vote-option" value="">SELECT FOR VOTE</option>
               <% for (let item of items){%>
                 <option value='<%=item.id%>'>

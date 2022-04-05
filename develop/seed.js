@@ -17,10 +17,10 @@ function createCones() {
 
 
 function createImages() {
-    const images = imageList.forEach(async (i,index) => {
+    const images = imageList.forEach(async (image,index) => {
 
         await Images.create({
-            image_name: `/images/${i}`,
+            image_name: image,
             coneId: index + 1
         })
     })
