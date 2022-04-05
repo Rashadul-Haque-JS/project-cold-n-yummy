@@ -13,9 +13,9 @@ const voted = async (email) => {
 //Member voting check
 const memberVote = async (email) => {
     if (email) {
-        const isMember = await Members.findOne({ where: { email } })
-        if (isMember) {
-            return isMember
+        const isMemberVote = await Members.findOne({ where: { email } });
+        if (isMemberVote) {
+            return isMemberVote
         } else {
             return ''
         }
@@ -69,7 +69,6 @@ const mostPopular = ()=>async (req, res) => {
 
     if (topCones.length > 0) {
     res.render('pages/thanks', { topCones, member: member })
-    console.log(topCones)
     } else{
     console.log('No cones has got any vote yet!')
     }

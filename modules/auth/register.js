@@ -35,7 +35,6 @@ const createMember = () => async (req, res) => {
             email:member.email
         
             }
-        console.log('my neme '+ req.session.member.membername)
         res.redirect('pages/login')
     }
 

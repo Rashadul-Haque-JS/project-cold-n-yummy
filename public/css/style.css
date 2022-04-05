@@ -436,6 +436,40 @@ p {
   opacity: 0;
 }
 
+.create-cones{
+  display:flex;
+  justify-content: center;
+  align-items: center;
+  
+}
+
+.create-cones-form{
+  display:flex;
+  justify-content: space-around;
+  align-items: center;
+  flex-direction: column;
+  width:300px;
+  height: 350px;
+  background-color: var(--offer-color);
+  margin-top: 150px;
+  border-radius: 10px;
+  font-family: var(--secondary-fonts);
+}
+
+.create-cones-form input, .create-cones-form button{
+  width: 262px;
+  border-radius: 10px;
+}
+
+.create-cones-form h1{
+  font-size: 1.4rem;
+}
+
+.create-cones-form button{
+  padding: 4px;
+  background: var(--btn-color);
+}
+
 footer {
   display: flex;
   justify-content: center;

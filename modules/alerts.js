@@ -5,5 +5,8 @@ const alreadyRegistered = "<script>alert('Already member, please login!'); windo
 
 const unmacthed = "<script>alert('Password not match!'); window.location.href = 'pages/register'; </script>"
 
+const succesfull = "<script>alert('Successful! Thank you'); window.location.href = '/'; </script>"
+const matched = "<script>alert(' Sorry! Name is already on the list, find another one!'); window.location.href = './create'; </script>"
 
-module.exports = {alreadyVoted, alreadyRegistered, unmacthed}
+
+module.exports = {alreadyVoted, alreadyRegistered, unmacthed ,succesfull, matched}

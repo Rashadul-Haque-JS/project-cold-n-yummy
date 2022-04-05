@@ -3,9 +3,9 @@ app = express()
 const { Images, Cones, Voters, Members } = require('./models/index')
 const { renderInit } = require('./modules/initial')
 const { voteCast, mostPopular } = require('./modules/vote')
-
 const { createMember, renderRegister } = require('./modules/auth/register')
 const { memberLogin, renderLogin } = require('./modules/auth/login')
+const { createNewCones } = require('./modules/create')
 
 app.use(express.static("public"));
 app.set("view engine", "ejs");
@@ -20,6 +20,8 @@ app.use(session({
 }))
 
 //Request handelers block
+
+
 
 app.get('/', renderInit())
 
@@ -42,15 +44,20 @@ app.post('/logout', (req, res) => {
 
 app.post('/vote', voteCast())
 
-app.get('/pages/thanks',mostPopular() )
-
-
+app.get('/pages/thanks', mostPopular())
 
 app.get('/pages/about', (req, res) => {
-    const member = req.session.member
-    res.render('pages/about', { member: member })
-
+    let member = req.session.member
+    res.render('pages/about', { member })
 })
+
+app.post('/pages/create', createNewCones())
+
+app.get('/pages/create', (req, res) => {
+    let member = req.session.member
+    res.render('pages/create', { member })
+})
+
 
 const port = 8000;
 
