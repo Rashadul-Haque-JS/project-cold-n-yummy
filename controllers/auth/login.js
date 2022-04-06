@@ -2,7 +2,7 @@
 const { Members } = require('../../models/index')
 
     
-const memberLogin = ()=>async (req, res) => {
+async function memberLogin (req, res){
     try {
         const { email, password } = req.body
         const member = await Members.authenticate(email, password)
@@ -23,7 +23,7 @@ const memberLogin = ()=>async (req, res) => {
     }
 }
 
-const renderLogin = ()=>(req, res) => {
+ function renderLogin(req, res){
     const value = req.session.member
     if (value == null) {
         const errorMessage = req.session.errorMessage
@@ -36,4 +36,4 @@ const renderLogin = ()=>(req, res) => {
 }
 
 
-module.exports ={memberLogin, renderLogin}
+module.exports = { memberLogin, renderLogin }

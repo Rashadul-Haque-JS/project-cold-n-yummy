@@ -1,9 +1,9 @@
 
 const { Cones } = require('../models/index')
-const { matched, succesfull } = require('../modules/alerts')
+const { matched, succesfull } = require('../controllers/alerts')
 
 
-const createNewCones = () => async (req, res) => {
+async  function createNewCones (req, res){
     const { new_cone_name } = req.body
     const array = await Cones.findAll({ attributes: ['name'], raw: true }) 
 

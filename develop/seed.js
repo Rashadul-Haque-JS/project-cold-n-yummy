@@ -1,6 +1,6 @@
 
-const { Members, Voters, Cones, Images } = require('../models/index')
-const { flavours, imageList } = require('../modules/flavours')
+const {Cones, Images } = require('../models/index')
+const { flavours, imageList } = require('../controllers/flavours')
 
 
 function createCones() {

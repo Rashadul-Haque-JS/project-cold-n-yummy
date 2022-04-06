@@ -1,6 +1,5 @@
 
 const { Model, DataTypes } = require('sequelize')
-const { imageList} = require('../modules/flavours')
 
 
 module.exports = database => {

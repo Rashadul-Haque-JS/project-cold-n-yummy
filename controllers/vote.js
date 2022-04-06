@@ -28,7 +28,7 @@ const memberVote = async (email) => {
 
 //Vote casting
 
-const voteCast = () => async (req, res) => {
+ async function voteCast (req, res) {
     const { email, number } = req.body
     const voterCheck = await voted(email)
     const mId = await memberVote(email)
@@ -53,7 +53,7 @@ const voteCast = () => async (req, res) => {
 
 
 // Get most popular cones
-const mostPopular = ()=>async (req, res) => {
+async function mostPopular (req, res){
     const member = req.session.member
     const conesList = await Cones.findAll({
         order: [[Sequelize.col('vote_count'), 'DESC']],
