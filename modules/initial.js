@@ -1,6 +1,6 @@
 
 
-const { Images, Cones, Voters, Members } = require('../models/index')
+const { Images, Cones} = require('../models/index')
 
 //Initial rendering
 const renderInit = () => async (req, res) => {

@@ -8,7 +8,7 @@ const showEmali = () => {
   if (memberEmail) {
     return input.value = memberEmail.innerText
   } else {
-    console.log('no')
+   
     return ''
   }
 
