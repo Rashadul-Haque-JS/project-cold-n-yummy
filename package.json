@@ -29,10 +29,9 @@
     "express": "^4.17.3",
     "express-session": "^1.17.2",
     "install": "^0.13.0",
+    "mysql2": "^3.4.0",
     "npm": "^8.5.5",
-    "sequelize": "^6.17.0",
-    "sqlite": "^4.0.25",
-    "sqlite3": "^5.0.2"
+    "sequelize": "^6.17.0"
   },
   "devDependencies": {
     "nodemon": "^2.0.15"

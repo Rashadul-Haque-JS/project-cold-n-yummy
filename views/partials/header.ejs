@@ -1,10 +1,55 @@
 <div class="showcase">
-
     <img src="/images/showcase.svg" alt="banner">
-
     <div class="offer">
         <h1>VOTE FOR THE BEST</h1>
         <img src="/images/optimus_prime.jpg" alt="">
-        <h2>Win a handshake with the <span>OPTIMUS PRIME</span></h2>
+        <h2>win a handshake with the <span>OPTIMUS PRIME</span></h2>
     </div>
 </div>
+
+<!-- Add the following CSS in your CSS file or within a <style> tag -->
+<style>
+    /* Styles for mobile screens */
+    @media only screen and (max-width: 767px) {
+        #message {
+            position: fixed;
+            top: 2%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background-color: #0e64dc;
+            color:#fff;
+            font-size: 1.2rem;
+            padding: 20px;
+            border: 1px solid #ccc;
+            text-align: start;
+            z-index: 9999;
+            width: 100%;
+           
+        }
+    }
+</style>
+
+<!-- Add the following script at the bottom of your HTML body -->
+<script>
+    // Check if the message has already been displayed before
+    if (!localStorage.getItem('messageDisplayed')) {
+        // Display the message on mobile screens
+        if (window.innerWidth <= 767) {
+            var messageElement = document.createElement('div');
+            messageElement.setAttribute('id', 'message');
+            messageElement.innerHTML = '<p>This site is designed only for desktop view.</p>';
+            document.body.appendChild(messageElement);
+
+            // Set a flag to indicate that the message has been displayed
+            localStorage.setItem('messageDisplayed', 'true');
+
+            // Close the message after 3 seconds
+            setTimeout(function() {
+                var messageElement = document.getElementById('message');
+                if (messageElement) {
+                    messageElement.style.display = 'none';
+                }
+            }, 4000);
+        }
+    }
+</script>
